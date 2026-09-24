@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎀 Scrunchie Magic | Handcrafted Hair Accessories</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top glass-nav">
+    <div class="container">
+        <!-- Brand Logo with Bow Emoji -->
+        <a class="navbar-brand brand-logo brand-font fw-bold d-flex align-items-center gap-2" href="#">
+            <span class="fs-3">🎀</span>
+            <span>Scrunchie Magic</span>
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <i class="fa-solid fa-bars fs-3 text-danger"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3 text-center">
+                <li class="nav-item"><a class="nav-link fw-semibold active" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="#shop">Collection</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="#benefits">Why Us?</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="#reviews">Reviews</a></li>
+            </ul>
+
+            <!-- Live Search & Profile & Cart Buttons -->
+            <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0 justify-content-center">
+                <div class="input-group input-group-sm" style="max-width: 200px;">
+                    <span class="input-group-text bg-white border-end-0 rounded-start-pill text-muted">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <input type="text" id="search-input" class="form-control border-start-0 rounded-end-pill shadow-none" placeholder="Search scrunchies..." onkeyup="searchProducts()">
+                </div>
+
+                <!-- User Profile Trigger Button -->
+                <button class="btn btn-outline-pink d-flex align-items-center gap-1 text-nowrap" id="profileNavBtn" onclick="openProfileDrawer()">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="d-none d-sm-inline">Account</span>
+                </button>
+
+                <!-- Cart Trigger Button -->
+                <button class="btn btn-pink position-relative d-flex align-items-center gap-2 text-nowrap" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="d-none d-sm-inline">Cart</span>
+                    <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+    <!-- Hero Section -->
+<section id="home" class="hero-section py-5 mt-5">
+    <div class="container">
+        <div class="row align-items-center gy-4">
+            <!-- Left Side: Text Content -->
+            <div class="col-lg-6 order-1 order-lg-1">
+                <span class="hero-badge mb-3 d-inline-block">✨ 100% Handcrafted </span>
+                <h1 class="display-4 fw-bold mb-3" style="color: var(--dark-text);">
+                    Soft, Stylish & Gentle <br><span style="color: var(--deep-pink);">On Your Hair ✨</span>
+                </h1>
+                <p class="lead text-muted mb-4">
+                    Say goodbye to hair breakage, frizz, and ponytail headaches! Premium handcrafted scrunchies in gorgeous dream pastel shades.
+                </p>
+                <div class="d-flex flex-wrap gap-3 mb-4">
+                    <a href="#shop" class="btn btn-pink btn-lg"><i class="fa-solid fa-heart me-2"></i>Explore Collection</a>
+                    <a href="#benefits" class="btn btn-outline-pink btn-lg"><i class="fa-solid fa-sparkles me-2"></i>Hair Benefits</a>
+                </div>
+                
+                <div class="d-flex align-items-center gap-4 pt-3 border-top border-pink">
+                    <div>
+                        <h4 class="fw-bold mb-0" style="color: var(--deep-pink);">100%</h4>
+                        <small class="text-muted">Loved by your hair 💗</small>
+                    </div>
+                    <div class="vr"></div>
+                    <div>
+                        <h4 class="fw-bold mb-0" style="color: var(--deep-pink);">Zero</h4>
+                        <small class="text-muted">Hair Damage ✨</small>
+                    </div>
+                    <div class="vr"></div>
+                    <div>
+                        <h4 class="fw-bold mb-0" style="color: var(--deep-pink);">Ultra</h4>
+                        <small class="text-muted">Soft Elastic 💕</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Hero Image -->
+            <div class="col-lg-6 order-2 order-lg-2 text-center">
+                <div class="hero-img-box">
+                    <img src="images/hero-scrunchie.jpg" alt="Scrunchie Magic" class="img-fluid rounded-4 shadow-lg w-100" style="max-height: 480px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="hero-badge mb-2">🎀 Handpicked Collection</span>
+                <h2 class="display-5 fw-bold" style="color: var(--dark-text);">Choose Your Magic Vibe</h2>
+                <p class="text-muted">Filter by material or style to find your everyday hair essential.</p>
+
+                <!-- Category Filters -->
+                <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
+                    <button class="filter-chip active" onclick="filterCategory('All', this)">All Scrunchies 🌸</button>
+                    <button class="filter-chip" onclick="filterCategory('Silk', this)">Mulberry Silk ✨</button>
+                    <button class="filter-chip" onclick="filterCategory('Satin', this)">Satin 👒</button>
+                    <button class="filter-chip" onclick="filterCategory('Velvet', this)">Cozy Velvet 👑</button>
+                    <button class="filter-chip" onclick="filterCategory('Oversized & Bows', this)">Aesthetic Bows 🎀</button>
+                    <button class="filter-chip" onclick="filterCategory('Mini Sets', this)">Mini Combos 🍓</button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="row g-4" id="product-grid">
+                <!-- JS Dynamic Content -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-5" style="background-color: var(--soft-pink);">
+        <div class="container py-3">
+            <div class="text-center mb-5">
+                <h2 class="display-6 fw-bold" style="color: var(--deep-pink);">Why Switch To Silk Scrunchies?</h2>
+                <p class="text-muted">Standard elastic bands rip your hair. Scrunchie Magic protects it!</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded-4 h-100 shadow-sm text-center">
+                        <div class="mb-3 fs-1 text-danger"><i class="fa-solid fa-scissors"></i></div>
+                        <h4 class="fw-bold mb-2">No Hair Breakage</h4>
+                        <p class="text-muted small">Smooth mulberry silk glides over hair threads without friction, preventing split ends.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded-4 h-100 shadow-sm text-center">
+                        <div class="mb-3 fs-1 text-danger"><i class="fa-solid fa-ban text-warning"></i></div>
+                        <h4 class="fw-bold mb-2">Zero Creases or Dents</h4>
+                        <p class="text-muted small">Take down your bun after hours with zero ugly ponytail dents or kinks.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded-4 h-100 shadow-sm text-center">
+                        <div class="mb-3 fs-1 text-danger"><i class="fa-solid fa-face-smile-beam text-primary"></i></div>
+                        <h4 class="fw-bold mb-2">No Headache Pulling</h4>
+                        <p class="text-muted small">Super stretchy elastic inside ensures firm grip without tight pulling on your scalp.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Hairstyle Inspiration Lookbook -->
+<section id="reviews" class="py-5 bg-light">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <span class="hero-badge mb-2">Inspiration</span>
+            <h2 class="fw-bold display-6 brand-font" style="color: var(--dark-text);">Styling Lookbook ✨</h2>
+            <p class="text-muted">Easy 60-second hairstyles to pair with your favorite scrunchies!</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Look 1 -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden style-card" style="cursor: pointer;" onclick="openTutorialModal('bun')">
+                    <img src="images/high-messy-bun.png" class="card-img-top" alt="Messy Bun" style="height: 250px; object-fit: cover;">
+                    <div class="card-body p-4 text-center">
+                        <span class="badge bg-danger-subtle text-danger mb-2">Most Popular</span>
+                        <h5 class="fw-bold mb-1">Messy High Bun</h5>
+                        <small class="text-muted d-block mb-3">Pair with Mulberry Silk</small>
+                        <button class="btn btn-outline-pink btn-sm rounded-pill w-100">
+                            <i class="fa-solid fa-play me-1"></i> View Tutorial
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Look 2 -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden style-card" style="cursor: pointer;" onclick="openTutorialModal('bow')">
+                    <img src="images/halfup-pony.png" class="card-img-top" alt="Half Up Bow" style="height: 250px; object-fit: cover;">
+                    <div class="card-body p-4 text-center">
+                        <span class="badge bg-warning-subtle text-dark mb-2">Aesthetic Vibe</span>
+                        <h5 class="fw-bold mb-1">Half-Up Ribbon Style</h5>
+                        <small class="text-muted d-block mb-3">Pair with Bow Scrunchie</small>
+                        <button class="btn btn-outline-pink btn-sm rounded-pill w-100">
+                            <i class="fa-solid fa-play me-1"></i> View Tutorial
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Look 3 -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden style-card" style="cursor: pointer;" onclick="openTutorialModal('ponytail')">
+                    <img src="images/sleek-back-low-pony.png" class="card-img-top" alt="Sleek Low Ponytail" style="height: 250px; object-fit: cover;">
+                    <div class="card-body p-4 text-center">
+                        <span class="badge bg-info-subtle text-info mb-2">Office Classic</span>
+                        <h5 class="fw-bold mb-1">Sleek Low Ponytail</h5>
+                        <small class="text-muted d-block mb-3">Pair with Satin Scrunchie</small>
+                        <button class="btn btn-outline-pink btn-sm rounded-pill w-100">
+                            <i class="fa-solid fa-play me-1"></i> View Tutorial
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tutorial Popup Modal -->
+<div class="modal fade" id="tutorialModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0 shadow-lg">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="fw-bold modal-title" id="tutorialTitle">Hairstyle Tutorial</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+                <div id="tutorialSteps" class="mb-4">
+                    <!-- Dynamic Steps via JS -->
+                </div>
+                <button class="btn btn-pink w-100 py-2.5 fw-bold" id="tutorialShopBtn" style="background-color: #ff69b4; color: white; border: none;">
+                    🛍️ Shop Recommended Scrunchie
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Shopping Cart Drawer -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+        <div class="offcanvas-header border-bottom" style="background-color: var(--soft-pink);">
+            <h5 class="offcanvas-title fw-bold" style="color: var(--deep-pink);"><i class="fa-solid fa-bag-shopping me-2"></i>Your Shopping Bag</h5>
+            <button type="button" class="btn-close text-reset shadow-none" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column" id="cart-items-body">
+            <!-- Dynamic Cart Items -->
+        </div>
+        <div class="p-3 border-top bg-light">
+            <div class="d-flex justify-content-between mb-2 small text-muted">
+                <span>Shipping:</span>
+                <span class="text-success fw-bold">FREE (India)</span>
+            </div>
+            <div class="d-flex justify-content-between mb-3 fs-5 fw-bold">
+                <span>Total Amount:</span>
+                <span style="color: var(--deep-pink);" id="cart-total-price">₹0</span>
+            </div>
+            <button class="btn btn-pink w-100 py-3 fw-bold" onclick="openCheckoutModal()">Proceed to Buy ✨</button>
+        </div>
+    </div>
+
+    <!-- Enhanced Interactive Checkout Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+                
+                <div class="modal-header bg-light border-0 px-4 py-3">
+                    <h5 class="modal-header-title fw-bold text-dark mb-0" id="checkoutModalLabel">
+                        🛍️ Complete Your Order
+                    </h5>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body p-4">
+                    <form id="checkoutForm" onsubmit="handleOrderSubmit(event)">
+                        <div class="row g-4">
+                            
+                            <!-- Left Column: Shipping & Payment Details -->
+                            <div class="col-lg-7">
+                                <!-- Step 1: Shipping Details -->
+                                <h6 class="fw-bold text-pink mb-3"><i class="fa-solid fa-truck-fast me-2"></i>1. Shipping Information</h6>
+                                <div class="row g-2 mb-3">
+                                    <div class="col-6">
+                                        <label class="form-label small text-muted mb-1">First Name</label>
+                                        <input type="text" class="form-control form-control-sm rounded-3" required placeholder="Priya">
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label small text-muted mb-1">Last Name</label>
+                                        <input type="text" class="form-control form-control-sm rounded-3" required placeholder="Sharma">
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label small text-muted mb-1">Mobile (For WhatsApp Updates)</label>
+                                        <input type="tel" class="form-control form-control-sm rounded-3" required placeholder="+91 98765 43210" pattern="[0-9+\s\-]{10,15}">
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label small text-muted mb-1">Delivery Address</label>
+                                        <textarea class="form-control form-control-sm rounded-3" rows="2" required placeholder="Door No, Street Name, Area..."></textarea>
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label small text-muted mb-1">City</label>
+                                        <input type="text" class="form-control form-control-sm rounded-3" required placeholder="Chennai">
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label small text-muted mb-1">Pincode</label>
+                                        <input type="text" class="form-control form-control-sm rounded-3" required placeholder="600001" pattern="[0-9]{6}">
+                                    </div>
+                                </div>
+
+                                <!-- Step 2: Payment Method -->
+                                <h6 class="fw-bold text-pink mb-3 mt-4"><i class="fa-solid fa-credit-card me-2"></i>2. Payment Method</h6>
+                                <div class="payment-options d-flex flex-column gap-2">
+                                    <label class="payment-card d-flex align-items-center justify-content-between p-3 rounded-3 border cursor-pointer active-payment">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <input type="radio" name="paymentMethod" value="UPI" checked onclick="togglePaymentDetails('upi')">
+                                            <span class="fw-semibold small">UPI / GPay / PhonePe / Paytm</span>
+                                        </div>
+                                        <span class="badge bg-success-subtle text-success small">Fastest</span>
+                                    </label>
+
+                                    <label class="payment-card d-flex align-items-center justify-content-between p-3 rounded-3 border cursor-pointer">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <input type="radio" name="paymentMethod" value="Card" onclick="togglePaymentDetails('card')">
+                                            <span class="fw-semibold small">Credit / Debit Card</span>
+                                        </div>
+                                    </label>
+
+                                    <label class="payment-card d-flex align-items-center justify-content-between p-3 rounded-3 border cursor-pointer">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <input type="radio" name="paymentMethod" value="COD" onclick="togglePaymentDetails('cod')">
+                                            <span class="fw-semibold small">Cash on Delivery (COD)</span>
+                                        </div>
+                                        <span class="badge bg-warning-subtle text-warning small">+₹20 Fee</span>
+                                    </label>
+                                </div>
+
+                                <!-- Dynamic Payment Inputs -->
+                                <div id="upiDetailBox" class="mt-3 p-3 bg-light rounded-3 border">
+                                    <label class="form-label small text-muted mb-1">Enter UPI ID</label>
+                                    <input type="text" class="form-control form-control-sm rounded-3" placeholder="username@upi or mobile@paytm">
+                                </div>
+                            </div>
+
+                            <!-- Right Column: Order Summary -->
+                            <div class="col-lg-5">
+                                <div class="p-3 bg-light rounded-4 border">
+                                    <h6 class="fw-bold text-dark mb-3">Order Summary</h6>
+                                    
+                                    <div id="checkoutItemsList" class="d-flex flex-column gap-2 mb-3 max-height-checkout overflow-auto">
+                                        <!-- JS Cart Items Insertion -->
+                                    </div>
+
+                                    <hr class="my-2">
+
+                                    <div class="d-flex justify-content-between small text-muted mb-1">
+                                        <span>Subtotal</span>
+                                        <span id="checkoutSubtotal">₹0</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between small text-muted mb-1">
+                                        <span>Shipping</span>
+                                        <span class="text-success fw-semibold">FREE</span>
+                                    </div>
+                                    <div id="codFeeRow" class="d-flex justify-content-between small text-muted mb-1 d-none">
+                                        <span>COD Handling Fee</span>
+                                        <span>₹20</span>
+                                    </div>
+
+                                    <hr class="my-2">
+
+                                    <div class="d-flex justify-content-between fw-bold text-dark fs-5 mb-3">
+                                        <span>Total Amount</span>
+                                        <span id="checkoutGrandTotal" class="text-pink">₹0</span>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-pink w-100 py-2.5 rounded-pill fw-bold text-white shadow-sm">
+                                        Place Order 🎉
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Success Modal -->
+    <div class="modal fade" id="orderSuccessModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4 border-0 rounded-4 shadow-lg">
+                <div class="display-1 text-success mb-2">🎉</div>
+                <h4 class="fw-bold text-dark">Order Placed Successfully!</h4>
+                <p class="text-muted small">Thank you for shopping with Scrunchie Magic. Tracking updates will be sent to your WhatsApp!</p>
+                <button type="button" class="btn btn-pink rounded-pill text-white px-4 py-2 mt-2 fw-bold" data-bs-dismiss="modal">
+                    Continue Shopping ✨
+                </button>
+            </div>
+        </div>
+    </div>
+    
+   <!-- Product Details Modal -->
+<div class="modal fade" id="productDetailModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content rounded-4 border-0 shadow-lg">
+            <div class="modal-header border-0 pb-0">
+                <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6 text-center">
+                        <div class="modal-img-container p-3 rounded-4" style="background-color: var(--soft-pink, #ffe5ec);">
+                            <img id="modal-product-img" src="" class="img-fluid rounded-4 shadow-sm" style="max-height: 300px; object-fit: cover;" alt="Product Image">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <span id="modal-product-tag" class="hero-badge mb-2 d-inline-block"></span>
+                        <h3 id="modal-product-name" class="fw-bold mt-1 mb-2"></h3>
+                        
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <span class="fs-4 fw-bold" style="color: var(--deep-pink, #ff4d6d);" id="modal-product-price"></span>
+                        </div>
+                        
+                        <p id="modal-product-desc" class="text-muted small mb-3"></p>
+                        
+                        <div class="mb-4">
+                            <label class="form-label fw-bold small text-dark d-block mb-2">
+                                Selected Color: <span id="modal-selected-color-name" class="fw-bold ms-1" style="color: var(--deep-pink, #ff4d6d);"></span>
+                            </label>
+                            <div id="modal-color-options" class="d-flex gap-2"></div>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button id="modal-add-to-cart-btn" class="btn btn-pink py-2.5 fw-bold shadow-sm" style="background-color: #ff69b4; color: white; border: none;">
+                                <i class="fa-solid fa-bag-shopping me-2"></i>Add To Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Notification Toast -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="actionToast" class="toast align-items-center text-white bg-dark border-0 rounded-pill" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body px-4 py-2" id="toast-message">
+                    ✨ Item added to cart!
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Footer Section -->
+<footer class="pt-5 pb-3" style="background-color: #ffe5ec;">
+    <div class="container">
+        <div class="row g-4 mb-4 align-items-start">
+            
+            <!-- Column 1: Brand Info & Quality Promise -->
+           <div class="col-lg-3 col-md-6">
+            <a class="navbar-brand brand-logo brand-font fw-bold fs-4 d-flex align-items-center gap-2 mb-3 text-danger text-decoration-none" href="#home">
+                <span>🎀</span> <span>Scrunchie Magic</span>
+            </a>
+            <p class="text-muted small mb-3" style="line-height: 1.7; font-size: 0.88rem;">
+                Handcrafted with love in India. Premium silk & velvet hair accessories designed to protect your hair with zero damage, zero creasing, and maximum style. ✨
+            </p>
+            <div class="d-flex align-items-center gap-2 text-pink small fw-semibold pt-1" style="color: #ff69b4;">
+                <i class="fa-solid fa-sparkles"></i>
+                <span>100% Damage-Free Hair Essentials</span>
+            </div>
+        </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="col-lg-2 col-md-6 offset-lg-1">
+                <h6 class="fw-bold text-dark mb-3">Quick Links</h6>
+                <ul class="list-unstyled d-flex flex-column gap-2 small mb-0">
+                    <li><a href="#home" class="text-decoration-none text-muted">Home</a></li>
+                    <li><a href="#shop" class="text-decoration-none text-muted">Shop Collection</a></li>
+                    <li><a href="#benefits" class="text-decoration-none text-muted">Why Silk?</a></li>
+                    <li><a href="#reviews" class="text-decoration-none text-muted">Styling Lookbook</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Customer Support -->
+            <div class="col-lg-3 col-md-6">
+                <h6 class="fw-bold text-dark mb-3">Customer Support</h6>
+                <ul class="list-unstyled d-flex flex-column gap-2 small mb-0">
+                    <li><a href="javascript:void(0)" onclick="openProfileDrawer()" class="text-decoration-none text-muted">Track Your Order</a></li>
+                    <li><a href="javascript:void(0)" onclick="openPolicyModal('Shipping Policy', 'We process and dispatch all orders within 24-48 hours. Express delivery takes 3-5 business days across India!')" class="text-decoration-none text-muted">Shipping Policy</a></li>
+                    <li><a href="javascript:void(0)" onclick="openPolicyModal('Returns & Refunds', 'Due to hygiene reasons, hair accessories cannot be returned. However, if you received a damaged product, WhatsApp us within 24 hours for a replacement!')" class="text-decoration-none text-muted">Returns & Refunds</a></li>
+                    <li><a href="javascript:void(0)" onclick="openPolicyModal('FAQs', 'Q: Are these silk scrunchies safe for hair?\nA: Yes! They prevent hair breakage and creasing.\n\nQ: How to wash?\nA: Hand wash gently with mild liquid shampoo.')" class="text-decoration-none text-muted">FAQs</a></li>
+                    <li><a href="https://wa.me/918925169543?text=Hi%20Scrunchie%20Magic!%20I%20have%20a%20query" target="_blank" class="text-decoration-none text-muted">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Get in Touch -->
+            <div class="col-lg-3 col-md-6">
+                <h6 class="fw-bold text-dark mb-3">Get in Touch</h6>
+                <ul class="list-unstyled d-flex flex-column gap-2 small text-muted mb-3">
+                    <li class="d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-location-dot text-danger" style="width: 16px;"></i>
+                        <span>Chennai, Tamil Nadu, India</span>
+                    </li>
+                    <li class="d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-envelope text-danger" style="width: 16px;"></i>
+                        <a href="mailto:scrunchiemagic.help@gmail.com" class="text-decoration-none text-muted text-break">scrunchiemagic.help@gmail.com</a>
+                    </li>
+                    <li class="d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-phone text-danger" style="width: 16px;"></i>
+                        <a href="tel:+918925169543" class="text-decoration-none text-muted">+91 8925169543</a>
+                    </li>
+                </ul>
+                <div class="d-flex gap-2">
+                    <!-- Instagram Handle -->
+                    <a href="https://instagram.com/scrunchie.magic_" target="_blank" class="btn rounded-circle shadow-sm d-flex align-items-center justify-content-center text-danger" style="width: 36px; height: 36px; background: white;">
+                        <i class="fa-brands fa-instagram fs-6"></i>
+                    </a>
+                    <!-- WhatsApp Direct Contact -->
+                    <a href="https://wa.me/918925169543?text=Hi%20Scrunchie%20Magic!%20I%20want%20to%20place%20an%20order" target="_blank" class="btn rounded-circle shadow-sm d-flex align-items-center justify-content-center text-success" style="width: 36px; height: 36px; background: white;">
+                        <i class="fa-brands fa-whatsapp fs-6"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-4 text-secondary opacity-25">
+
+        <!-- Bottom Copyright & Safe Checkout -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 small text-muted">
+            <p class="mb-0">© 2026 <strong>Scrunchie Magic India</strong>. All Rights Reserved.</p>
+            <div class="d-flex align-items-center gap-2">
+                <span class="fw-bold text-dark me-2">100% Safe Checkout:</span>
+                <i class="fa-brands fa-google-pay fs-4 text-dark"></i>
+                <i class="fa-brands fa-cc-visa fs-4 text-dark"></i>
+                <i class="fa-brands fa-cc-mastercard fs-4 text-dark"></i>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+
+    <!-- Email Enrollment / Login Modal -->
+<div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+            <div class="modal-body p-4 text-center">
+                <div class="mb-3">
+                    <span class="fs-1">🎀</span>
+                </div>
+                <h4 class="fw-bold mb-1" style="color: var(--dark-text, #333);">Welcome to Scrunchie Magic!</h4>
+                <p class="text-muted small mb-4">Please enroll with your email to continue shopping and access your profile.</p>
+                
+                <form id="enrollmentForm" onsubmit="handleEnrollment(event)">
+                    <div class="form-floating mb-3 text-start">
+                        <input type="text" class="form-control rounded-3" id="userName" placeholder="Your Name" required>
+                        <label for="userName">Full Name</label>
+                    </div>
+                    <div class="form-floating mb-3 text-start">
+                        <input type="email" class="form-control rounded-3" id="userEmail" placeholder="name@example.com" required>
+                        <label for="userEmail">Email Address</label>
+                    </div>
+                    <button type="submit" class="btn btn-pink w-100 py-3 fw-bold rounded-3 shadow-sm" style="background-color: #ff69b4; color: white; border: none;">
+                        Enroll & Continue Shopping ✨
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Review Floating Banner -->
+    <div id="reviewPromptBanner" class="position-fixed bottom-0 end-0 m-3 p-3 bg-white rounded-4 shadow-lg border border-danger border-2 d-none" style="z-index: 1060; max-width: 340px;">
+        <div class="d-flex align-items-start justify-content-between mb-2">
+            <h6 class="fw-bold mb-0 text-danger brand-font">How was your order? 🎀</h6>
+            <button type="button" class="btn-close small" onclick="closeReviewBanner()"></button>
+        </div>
+        <p class="small text-muted mb-2" id="bannerOrderText">We hope you loved your recent purchase! Please share your feedback with us.</p>
+        <button type="button" class="btn btn-pink btn-sm w-100 rounded-pill fw-bold text-white" onclick="openDynamicReviewFromBanner()" style="background-color: #ff69b4; border: none;">Rate My Purchase ✨</button>
+    </div>
+<!-- User Profile Offcanvas Drawer -->
+<div class="offcanvas offcanvas-end rounded-start-4" tabindex="-1" id="profileDrawer" aria-labelledby="profileDrawerLabel">
+    <div class="offcanvas-header border-bottom bg-light">
+        <div class="d-flex align-items-center gap-3">
+            <div class="profile-avatar bg-pink text-white rounded-circle d-flex align-items-center justify-content-center fw-bold fs-4" style="width: 50px; height: 50px; background-color: #ff69b4;">
+                <span id="profileAvatarInitial">U</span>
+            </div>
+            <div>
+                <h6 class="mb-0 fw-bold" id="profileNameDisplay">User Name</h6>
+                <small class="text-muted" id="profileEmailDisplay">user@email.com</small>
+            </div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body p-0">
+        <!-- Navigation Tabs -->
+        <div class="list-group list-group-flush border-bottom">
+            <button class="list-group-item list-group-item-action py-3 d-flex align-items-center justify-content-between" onclick="showProfileSection('orders')">
+                <span><i class="fa-solid fa-box-archive me-2 text-pink" style="color: #ff69b4;"></i> My Orders</span>
+                <i class="fa-solid fa-chevron-right text-muted small"></i>
+            </button>
+            <button class="list-group-item list-group-item-action py-3 d-flex align-items-center justify-content-between" onclick="openReviewModal()">
+                <span><i class="fa-solid fa-star me-2 text-warning"></i> My Reviews & Ratings</span>
+                <i class="fa-solid fa-chevron-right text-muted small"></i>
+            </button>
+            <button class="list-group-item list-group-item-action py-3 d-flex align-items-center justify-content-between text-danger" onclick="logoutUser()">
+                <span><i class="fa-solid fa-right-from-bracket me-2"></i> Logout Profile</span>
+            </button>
+        </div>
+
+        <!-- Dynamic Content Section -->
+        <div class="p-3" id="profileTabContent">
+            <!-- Order History Will Be Rendered Here via JS -->
+            <div class="order-card border rounded-3 p-3 mb-3 bg-white shadow-sm">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="badge bg-light text-dark fw-bold border">#ORD171271</span>
+                    <span class="badge bg-success">Delivered</span>
+                </div>
+                <small class="text-muted d-block mb-2">4 Sept 2026</small>
+                <ul class="list-unstyled small mb-3 border-bottom pb-2">
+                    <li>• Mulberry Silk Scrunchie (Blush Pink) x 1</li>
+                    <li>• Bow Scrunchie (Blush Pink) x 1</li>
+                </ul>
+                <div class="d-flex justify-content-between align-items-center pt-1">
+                    <span class="fw-bold text-dark">Total: ₹118</span>
+                    <!-- Rate Product Button -->
+                    <button class="btn btn-outline-warning btn-sm rounded-pill fw-bold px-3 d-flex align-items-center gap-1" onclick="openReviewModal()">
+                        <i class="fa-solid fa-star"></i> Rate Product
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Review Modal -->
+<div class="modal fade" id="reviewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 rounded-4 shadow">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title fw-bold brand-font text-danger">Rate & Review Your Order 🎀</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <form id="reviewForm" onsubmit="submitReview(event)">
+                    <!-- Order ID -->
+                    <input type="hidden" id="reviewOrderId" value="#ORD171271">
+                    
+                    <!-- Star Rating -->
+                    <div class="mb-3 text-center">
+                        <label class="form-label fw-bold d-block text-muted small">Tap stars to rate:</label>
+                        <div class="star-rating fs-2 text-warning d-flex justify-content-center gap-2">
+                            <i class="fa-regular fa-star star-icon" onclick="setRating(1)" style="cursor:pointer;"></i>
+                            <i class="fa-regular fa-star star-icon" onclick="setRating(2)" style="cursor:pointer;"></i>
+                            <i class="fa-regular fa-star star-icon" onclick="setRating(3)" style="cursor:pointer;"></i>
+                            <i class="fa-regular fa-star star-icon" onclick="setRating(4)" style="cursor:pointer;"></i>
+                            <i class="fa-regular fa-star star-icon" onclick="setRating(5)" style="cursor:pointer;"></i>
+                        </div>
+                        <input type="hidden" id="selectedRating" value="5">
+                    </div>
+
+                    <!-- Feedback Input -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold small text-dark">Your Feedback & Experience:</label>
+                        <textarea id="reviewText" class="form-control rounded-3 p-3 small shadow-none" rows="3" placeholder="Tell us how much you loved your scrunchies! ✨" required></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-pink w-100 rounded-pill py-2 fw-bold text-white shadow-sm" style="background-color: #ff69b4; border: none;">Submit Review & Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Star Rating Modal (Put this near the end of body tag) -->
+    <div class="modal fade" id="reviewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 shadow">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold brand-font text-danger">Rate Your Purchased Item 🎀</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="reviewForm" onsubmit="submitReview(event)">
+                        <input type="hidden" id="reviewOrderId">
+                        
+                        <div class="mb-3 text-center">
+                            <label class="form-label fw-bold d-block text-muted small">Tap stars to rate:</label>
+                            <div class="star-rating fs-2 text-warning d-flex justify-content-center gap-2">
+                                <i class="fa-regular fa-star star-icon" onclick="setRating(1)" style="cursor:pointer;"></i>
+                                <i class="fa-regular fa-star star-icon" onclick="setRating(2)" style="cursor:pointer;"></i>
+                                <i class="fa-regular fa-star star-icon" onclick="setRating(3)" style="cursor:pointer;"></i>
+                                <i class="fa-regular fa-star star-icon" onclick="setRating(4)" style="cursor:pointer;"></i>
+                                <i class="fa-regular fa-star star-icon" onclick="setRating(5)" style="cursor:pointer;"></i>
+                            </div>
+                            <input type="hidden" id="selectedRating" value="5">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small text-dark">Your Review & Feedback:</label>
+                            <textarea id="reviewText" class="form-control rounded-3 p-3 small shadow-none" rows="3" placeholder="Tell us how much you loved your scrunchies! ✨" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-pink w-100 rounded-pill py-2 fw-bold text-white shadow-sm" style="background-color: #ff69b4; border: none;">Submit Review & Email Support</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
