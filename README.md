@@ -25,6 +25,7 @@ Figma (UI/UX prototyping and layout design)
 📂 Project Structure:
 
 MyScrunhieWebsite/
+
 │
 
 ├── index.html           # Main home page
