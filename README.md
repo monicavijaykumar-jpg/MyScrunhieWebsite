@@ -26,10 +26,15 @@ Figma (UI/UX prototyping and layout design)
 
 MyScrunhieWebsite/
 │
+
 ├── index.html           # Main home page
+
 ├── style.css            # Styling and design layouts
+
 ├── script.js            # Interactive behaviors
+
 ├── website-full-view.jpeg # Full website screenshot
+
 └── images/              # Asset folder containing product images
 
 🚀 Deployment:
